@@ -95,8 +95,12 @@ public class OhmageApplication extends Application {
     private static ContentResolver mFakeContentResolver;
 
     private static AndroidHttpClient mHttpClient;
-    
+
     private static AccountManager mAccountManager;
+
+    private ConfigHelper config;
+
+    private UserPreferencesHelper userPrefs;
 
     @Override
     public void onCreate() {
@@ -105,7 +109,8 @@ public class OhmageApplication extends Application {
 
         self = this;
 
-        ConfigHelper config = new ConfigHelper(this);
+        config = new ConfigHelper(this);
+        userPrefs = new UserPreferencesHelper(this);
 
         LogProbe.setLevel(config.getLogAnalytics(), config.getLogLevel());
         LogProbe.get(this);
@@ -120,14 +125,12 @@ public class OhmageApplication extends Application {
             Log.e(TAG, "unable to retrieve current version code", e);
         }
 
-        ConfigHelper prefs = new ConfigHelper(this);
-        int lastVersionCode = prefs.getLastVersionCode();
-        boolean isFirstRun = prefs.isFirstRun();
+        int lastVersionCode = config.getLastVersionCode();
+        boolean isFirstRun = config.isFirstRun();
 
         if (currentVersionCode != lastVersionCode && !isFirstRun) {
             BackgroundManager.initComponents(this);
-
-            prefs.setLastVersionCode(currentVersionCode);
+            config.setLastVersionCode(currentVersionCode);
         }
 
         verifyState();
@@ -139,6 +142,60 @@ public class OhmageApplication extends Application {
             if (servers.isEmpty())
                 throw new RuntimeException("At least one server must be specified in config.xml");
             ConfigHelper.setServerUrl(servers.get(0));
+        }
+    }
+
+    /**
+     * Configures some settings based on the deployment. Looks at the server url
+     * and deployment name to figure out what the settings should be
+     * 
+     * @param server
+     */
+    public void configureForDeployment(String server) {
+        if (server == null)
+            return;
+
+        server = server.split(" ")[0];
+
+        ConfigHelper config = new ConfigHelper(this);
+
+        if ("https://lausd.mobilizingcs.org/".equals(server)) {
+            userPrefs.setShowFeedback(true);
+            userPrefs.setShowMobility(false);
+            userPrefs.setUploadResponsesWifiOnly(false);
+            userPrefs.setUploadProbesWifiOnly(true);
+            config.setAdminMode(false);
+            config.setLogLevel("verbose");
+            config.setLogAnalytics(true);
+            updateLogLevel();
+        } else if ("https://pilots.mobilizelabs.org/".equals(server)) {
+            userPrefs.setShowFeedback(true);
+            userPrefs.setShowMobility(false);
+            userPrefs.setUploadResponsesWifiOnly(false);
+            userPrefs.setUploadProbesWifiOnly(true);
+            config.setAdminMode(false);
+            config.setLogLevel("error");
+            config.setLogAnalytics(false);
+            updateLogLevel();
+        } else if ("https://dev.ohmage.org/".equals(server)
+                || "https://test.ohmage.org/".equals(server)) {
+            userPrefs.setShowFeedback(true);
+            userPrefs.setShowMobility(true);
+            userPrefs.setUploadResponsesWifiOnly(false);
+            userPrefs.setUploadProbesWifiOnly(false);
+            config.setAdminMode(true);
+            config.setLogLevel("verbose");
+            config.setLogAnalytics(true);
+            updateLogLevel();
+        } else if ("https://play.ohmage.org/".equals(server)) {
+            userPrefs.setShowFeedback(true);
+            userPrefs.setShowMobility(true);
+            userPrefs.setUploadResponsesWifiOnly(false);
+            userPrefs.setUploadProbesWifiOnly(true);
+            config.setAdminMode(true);
+            config.setLogLevel("error");
+            config.setLogAnalytics(false);
+            updateLogLevel();
         }
     }
 
@@ -341,7 +398,7 @@ public class OhmageApplication extends Application {
     }
 
     public static AccountManager getAccountManager() {
-        if(mAccountManager == null)
+        if (mAccountManager == null)
             mAccountManager = AccountManager.get(self);
         return mAccountManager;
     }

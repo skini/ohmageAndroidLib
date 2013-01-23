@@ -447,7 +447,7 @@ public class AuthenticatorActivity extends AccountAuthenticatorFragmentActivity 
 
         String server = mServerEdit.getText().toString();
         ConfigHelper.setServerUrl(server.split("\\(")[0].trim());
-        configureForDeployment(server);
+        ((OhmageApplication) getApplication()).configureForDeployment(server);
 
         if (mRequestNewAccount) {
             mUsername = mUsernameEdit.getText().toString();
@@ -626,59 +626,5 @@ public class AuthenticatorActivity extends AccountAuthenticatorFragmentActivity 
         }
 
         return false;
-    }
-
-    /**
-     * Configures some settings based on the deployment. Looks at the server url
-     * and deployment name to figure out what the settings should be
-     * 
-     * @param server
-     */
-    private void configureForDeployment(String server) {
-        if (server == null)
-            return;
-
-        server = server.split(" ")[0];
-
-        ConfigHelper config = new ConfigHelper(this);
-
-        if ("https://lausd.mobilizingcs.org/".equals(server)) {
-            mPreferencesHelper.setShowFeedback(true);
-            mPreferencesHelper.setShowMobility(false);
-            mPreferencesHelper.setUploadResponsesWifiOnly(false);
-            mPreferencesHelper.setUploadProbesWifiOnly(true);
-            config.setAdminMode(false);
-            config.setLogLevel("verbose");
-            config.setLogAnalytics(true);
-            ((OhmageApplication) getApplication()).updateLogLevel();
-        } else if ("https://pilots.mobilizelabs.org/".equals(server)) {
-            mPreferencesHelper.setShowFeedback(true);
-            mPreferencesHelper.setShowMobility(false);
-            mPreferencesHelper.setUploadResponsesWifiOnly(false);
-            mPreferencesHelper.setUploadProbesWifiOnly(true);
-            config.setAdminMode(false);
-            config.setLogLevel("error");
-            config.setLogAnalytics(false);
-            ((OhmageApplication) getApplication()).updateLogLevel();
-        } else if ("https://dev.ohmage.org/".equals(server)
-                || "https://test.ohmage.org/".equals(server)) {
-            mPreferencesHelper.setShowFeedback(true);
-            mPreferencesHelper.setShowMobility(true);
-            mPreferencesHelper.setUploadResponsesWifiOnly(false);
-            mPreferencesHelper.setUploadProbesWifiOnly(false);
-            config.setAdminMode(true);
-            config.setLogLevel("verbose");
-            config.setLogAnalytics(true);
-            ((OhmageApplication) getApplication()).updateLogLevel();
-        } else if ("https://play.ohmage.org/".equals(server)) {
-            mPreferencesHelper.setShowFeedback(true);
-            mPreferencesHelper.setShowMobility(true);
-            mPreferencesHelper.setUploadResponsesWifiOnly(false);
-            mPreferencesHelper.setUploadProbesWifiOnly(true);
-            config.setAdminMode(true);
-            config.setLogLevel("error");
-            config.setLogAnalytics(false);
-            ((OhmageApplication) getApplication()).updateLogLevel();
-        }
     }
 }
