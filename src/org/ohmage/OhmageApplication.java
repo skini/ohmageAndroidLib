@@ -120,7 +120,7 @@ public class OhmageApplication extends Application {
         int currentVersionCode = 0;
 
         try {
-            currentVersionCode = getPackageManager().getPackageInfo("org.ohmage", 0).versionCode;
+            currentVersionCode = getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
         } catch (NameNotFoundException e) {
             Log.e(TAG, "unable to retrieve current version code", e);
         }

@@ -16,6 +16,8 @@
 
 package org.ohmage;
 
+import android.content.Context;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -414,6 +416,10 @@ public class Utilities {
         };
         t.start();
         return t;
+    }
+
+    public static CharSequence getVersion(Context context) throws NameNotFoundException {
+        return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
     }
 
 }

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import org.ohmage.ConfigHelper;
 import org.ohmage.R;
 import org.ohmage.UserPreferencesHelper;
+import org.ohmage.Utilities;
 import org.ohmage.db.Models.Campaign;
 import org.ohmage.logprobe.Analytics;
 import org.ohmage.logprobe.Log;
@@ -80,7 +81,7 @@ public class OhmagePreferenceActivity extends PreferenceActivity  {
 		findPreference(STATUS_SERVER_URL).setSummary(ConfigHelper.serverUrl());
 
 		try {
-			findPreference(INFO_OHMAGE_VERSION).setSummary(getPackageManager().getPackageInfo("org.ohmage", 0).versionName);
+			findPreference(INFO_OHMAGE_VERSION).setSummary(Utilities.getVersion(this));
 		} catch (Exception e) {
 			Log.e(TAG, "unable to retrieve version", e);
 		}

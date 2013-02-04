@@ -49,6 +49,7 @@ import org.ohmage.OhmageApi.CampaignReadResponse;
 import org.ohmage.OhmageApplication;
 import org.ohmage.R;
 import org.ohmage.UserPreferencesHelper;
+import org.ohmage.Utilities;
 import org.ohmage.activity.DashboardActivity;
 import org.ohmage.async.CampaignReadTask;
 import org.ohmage.db.DbContract;
@@ -263,7 +264,7 @@ public class AuthenticatorActivity extends AccountAuthenticatorFragmentActivity 
 
     private CharSequence getVersion() {
         try {
-            return "v" + getPackageManager().getPackageInfo("org.ohmage", 0).versionName;
+            return "v" + Utilities.getVersion(this);
         } catch (Exception e) {
             Log.e(TAG, "unable to retrieve version", e);
             return null;

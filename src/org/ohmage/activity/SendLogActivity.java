@@ -6,10 +6,6 @@
 package org.ohmage.activity;
 
 
-import org.ohmage.AccountHelper;
-import org.ohmage.R;
-import org.ohmage.UserPreferencesHelper;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -23,6 +19,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+
+import org.ohmage.AccountHelper;
+import org.ohmage.R;
+import org.ohmage.Utilities;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -88,7 +88,7 @@ public class SendLogActivity extends Activity
         try {
             logHeader.append(LINE_SEPARATOR);
             logHeader.append("ver: ");
-			logHeader.append(getPackageManager().getPackageInfo("org.ohmage", 0).versionName);
+			logHeader.append(Utilities.getVersion(this));
 		} catch (NameNotFoundException e) {
 			Log.e(TAG, "unable to retrieve current version code", e);
 		}
