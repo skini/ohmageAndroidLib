@@ -166,7 +166,9 @@ public class AuthenticatorActivity extends AccountAuthenticatorFragmentActivity 
         mUsernameEdit.setText(mUsername);
         mMessage.setText(getVersion());
 
+        boolean showRegisterLink = getResources().getBoolean(R.bool.allow_user_registration);
         TextView registerAccountLink = (TextView) findViewById(R.id.login_register_new_account);
+        registerAccountLink.setVisibility(showRegisterLink ? View.VISIBLE : View.GONE);
         registerAccountLink.setOnClickListener(new OnClickListener() {
 
             @Override
