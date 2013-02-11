@@ -1,19 +1,21 @@
-ohmagePhone
-============
+ohmageAndroidLib
+================
+
+This is the library project which is required by any app which would like to use ohmage.
 
 ohmage (http://ohmage.org) is an open-source, mobile to web platform that records, 
 analyzes, and visualizes data from both prompted experience samples entered by the 
 user, as well as continuous streams of data passively collected from sensors or 
 applications onboard the mobile device. 
 
-Branches
+Projects
 --------
 
-* master - Contains the newest changes
-* NIH - Defaults to the single campaign version and includes the newest changes and changes
-specific to the NIH campaign including charts and the food/stress button
-* mobilize - mobilize version of ohmage which has mobilize branding
-* ptsd - ptsd version of ohmage
+These are the projects which currently use the ohmageAndroidLib
+
+* [ohmageApp](https://github.com/ohmage/ohmageApp) - The basic wrapper around the library project.
+Fork this project if you which to make your own changes.
+* [MobilizeApp](https://github.com/ohmage/MobilizeApp) - The mobilize version of the app.
 
 Dependencies
 ------------
