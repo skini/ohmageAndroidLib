@@ -3,7 +3,7 @@
 	<name>OhmageTest</name>
 	<comment></comment>
 	<projects>
-		<project>AndWellnessPhone</project>
+		<project>ohmageAndroidLib</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
