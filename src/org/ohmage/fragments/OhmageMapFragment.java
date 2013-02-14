@@ -1,12 +1,10 @@
 package org.ohmage.fragments;
 
-import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapController;
-
-import org.ohmage.OhmageApplication;
-import org.ohmage.R;
-
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -20,6 +18,12 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+
+import com.google.android.maps.GeoPoint;
+import com.google.android.maps.MapController;
+
+import org.ohmage.OhmageApplication;
+import org.ohmage.R;
 
 public class OhmageMapFragment extends MapFragment {
 
@@ -110,10 +114,29 @@ public class OhmageMapFragment extends MapFragment {
 
 	@Override
 	protected String getMapsApiKey() {
-		if(OhmageApplication.isDebugBuild())
+		if(isDebugBuildKey())
 			return getString(R.string.maps_debug_api_key);
 		else
 			return getString(R.string.maps_release_api_key);
 	}
+
+    /**
+     * Determines if we are running on release or debug signing key
+     * Used for maps
+     * 
+     * @return true if we are running Debug
+     * @throws Exception
+     */
+    public static boolean isDebugBuildKey() {
+        PackageManager pm = OhmageApplication.getContext().getPackageManager();
+        PackageInfo pi;
+        try {
+            pi = pm.getPackageInfo(OhmageApplication.getContext().getPackageName(), 0);
+            return ((pi.applicationInfo.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0);
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 }

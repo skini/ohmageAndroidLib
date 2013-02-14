@@ -25,9 +25,6 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.http.AndroidHttpClient;
 import android.os.Build;
@@ -373,21 +370,11 @@ public class OhmageApplication extends Application {
     }
 
     /**
-     * Determines if we are running on release or debug
-     * 
-     * @return true if we are running Debug
-     * @throws Exception
+     * Determines if this is a build for developers
+     * @return
      */
     public static boolean isDebugBuild() {
-        PackageManager pm = getContext().getPackageManager();
-        PackageInfo pi;
-        try {
-            pi = pm.getPackageInfo(getContext().getPackageName(), 0);
-            return ((pi.applicationInfo.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0);
-        } catch (NameNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        }
+        return "org.ohmage.dev".equals(getContext().getPackageName());
     }
 
     public static AndroidHttpClient getHttpClient() {

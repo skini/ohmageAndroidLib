@@ -408,7 +408,6 @@ public class AuthenticatorActivity extends AccountAuthenticatorFragmentActivity 
                         R.array.servers));
 
                 if (OhmageApplication.isDebugBuild()) {
-
                     servers.add("https://test.ohmage.org/");
                     servers.add("https://dev.ohmage.org/");
                 }

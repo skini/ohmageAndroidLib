@@ -88,8 +88,8 @@ import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
 
-import org.ohmage.OhmageApplication;
 import org.ohmage.R;
+import org.ohmage.fragments.OhmageMapFragment;
 import org.ohmage.logprobe.Analytics;
 import org.ohmage.logprobe.Log;
 import org.ohmage.logprobe.LogProbe.Status;
@@ -179,7 +179,7 @@ public class LocTrigMapsActivity extends MapActivity
         Log.v(TAG, "Maps: category id = " + mCategId);
         	
         FrameLayout mapContainer = (FrameLayout) findViewById(R.id.mapViewContainer);
-        mMapView = new MapView(this, OhmageApplication.isDebugBuild() ?
+        mMapView = new MapView(this, OhmageMapFragment.isDebugBuildKey() ?
 			getString(R.string.maps_debug_api_key) : getString(R.string.maps_release_api_key));
         mapContainer.addView(mMapView);
         mMapView.setClickable(true);
