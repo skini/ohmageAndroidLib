@@ -10,7 +10,7 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 
 import org.ohmage.AccountActivityHelper;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
 import org.ohmage.logprobe.Analytics;
 import org.ohmage.logprobe.LogProbe.Status;

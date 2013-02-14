@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.ohmage.R;
+import org.ohmage.library.R;
 
 public class Message implements SurveyElement, Displayable {
 	

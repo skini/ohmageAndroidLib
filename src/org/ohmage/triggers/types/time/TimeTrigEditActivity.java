@@ -31,7 +31,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.logprobe.Analytics;
 import org.ohmage.logprobe.Log;
 import org.ohmage.logprobe.LogProbe.Status;

@@ -30,6 +30,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.ohmage.library.R;
+
 /**
  * A view for selecting a number
  *

@@ -15,7 +15,7 @@
  ******************************************************************************/
 package org.ohmage.prompt.text;
 
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.prompt.AbstractPrompt;
 
 import android.content.Context;

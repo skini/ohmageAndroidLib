@@ -15,7 +15,7 @@
  ******************************************************************************/
 package org.ohmage.triggers.ui;
 
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.triggers.base.TriggerActionDesc;
 import org.ohmage.triggers.config.TrigUserConfig;
 

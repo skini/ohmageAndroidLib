@@ -40,7 +40,7 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.db.DbHelper;
 import org.ohmage.db.Models.Campaign;
 import org.ohmage.logprobe.Analytics;

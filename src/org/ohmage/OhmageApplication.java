@@ -38,6 +38,7 @@ import org.ohmage.authenticator.Authenticator;
 import org.ohmage.db.DbContract.Responses;
 import org.ohmage.db.DbHelper;
 import org.ohmage.db.Models.Response;
+import org.ohmage.library.R;
 import org.ohmage.logprobe.Analytics;
 import org.ohmage.logprobe.Log;
 import org.ohmage.logprobe.LogProbe;

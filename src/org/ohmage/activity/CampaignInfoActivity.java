@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.google.android.imageloader.ImageLoader;
 
 import org.ohmage.AccountHelper;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
 import org.ohmage.async.CampaignXmlDownloadTask;
 import org.ohmage.controls.ActionBarControl;

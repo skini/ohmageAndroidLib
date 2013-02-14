@@ -10,6 +10,7 @@ import android.content.Intent;
 import org.ohmage.activity.MobilityActivity;
 import org.ohmage.activity.UploadQueueActivity;
 import org.ohmage.authenticator.AuthenticatorActivity;
+import org.ohmage.library.R;
 
 public class NotificationHelper {
 

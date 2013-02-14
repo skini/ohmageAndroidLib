@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TabHost;
 
 import org.ohmage.MobilityHelper;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
 import org.ohmage.fragments.MobilityControlFragment;
 import org.ohmage.fragments.RecentMobilityChartFragment;

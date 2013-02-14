@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.activity.SubActionClickListener;
 import org.ohmage.activity.UploadQueueActivity;
 import org.ohmage.adapters.ResponseListCursorAdapter;

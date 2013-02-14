@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import org.ohmage.AccountHelper;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
 import org.ohmage.async.CampaignReadLoaderCallbacks;
 import org.ohmage.async.CampaignXmlDownloadTask;

@@ -49,7 +49,7 @@ import org.ohmage.ConfigHelper;
 import org.ohmage.OhmageApi;
 import org.ohmage.OhmageApplication;
 import org.ohmage.OhmageMarkdown;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.Utilities;
 import org.ohmage.db.DbContract;
 import org.ohmage.db.DbContract.Campaigns;

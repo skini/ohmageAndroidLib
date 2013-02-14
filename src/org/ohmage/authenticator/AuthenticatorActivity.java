@@ -47,7 +47,7 @@ import org.ohmage.NotificationHelper;
 import org.ohmage.OhmageApi.AuthenticateResponse;
 import org.ohmage.OhmageApi.CampaignReadResponse;
 import org.ohmage.OhmageApplication;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
 import org.ohmage.Utilities;
 import org.ohmage.activity.DashboardActivity;

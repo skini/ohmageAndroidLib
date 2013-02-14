@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import org.ohmage.ConfigHelper;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
 import org.ohmage.Utilities;
 import org.ohmage.db.Models.Campaign;

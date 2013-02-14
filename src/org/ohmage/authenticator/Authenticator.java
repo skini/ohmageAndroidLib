@@ -19,7 +19,7 @@ package org.ohmage.authenticator;
 import org.ohmage.OhmageApi;
 import org.ohmage.OhmageApi.AuthenticateResponse;
 import org.ohmage.OhmageApplication;
-import org.ohmage.R;
+import org.ohmage.library.R;
 
 import android.accounts.AbstractAccountAuthenticator;
 import android.accounts.Account;

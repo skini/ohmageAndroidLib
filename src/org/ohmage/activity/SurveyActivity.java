@@ -52,7 +52,7 @@ import org.ohmage.CampaignPreferencesHelper;
 import org.ohmage.ConfigHelper;
 import org.ohmage.OhmageApplication;
 import org.ohmage.PromptXmlParser;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
 import org.ohmage.conditionevaluator.DataPoint;
 import org.ohmage.conditionevaluator.DataPoint.PromptType;

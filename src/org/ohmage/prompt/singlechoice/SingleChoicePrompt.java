@@ -16,7 +16,7 @@
 package org.ohmage.prompt.singlechoice;
 
 import org.ohmage.OhmageMarkdown;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.Utilities.KVLTriplet;
 import org.ohmage.prompt.AbstractPrompt;
 

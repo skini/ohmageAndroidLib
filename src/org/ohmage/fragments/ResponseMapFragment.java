@@ -6,7 +6,7 @@ import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 
 import org.ohmage.ConfigHelper;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.db.DbContract.Responses;
 import org.ohmage.db.DbContract.Surveys;
 import org.ohmage.feedback.visualization.MapOverlayItem;

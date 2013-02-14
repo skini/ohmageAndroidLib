@@ -2,28 +2,20 @@
 package org.ohmage;
 
 import android.accounts.Account;
-import android.accounts.AccountManager;
 import android.accounts.AccountManagerFuture;
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Looper;
 import android.text.Html;
 
-import org.ohmage.activity.OhmageLauncher;
 import org.ohmage.activity.UploadQueueActivity;
-import org.ohmage.authenticator.AuthenticatorActivity;
 import org.ohmage.db.Models.Campaign;
-
-import java.io.IOException;
+import org.ohmage.library.R;
 
 /**
  * Helper class which makes it easy to show the account management dialogs such

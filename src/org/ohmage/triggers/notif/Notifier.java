@@ -29,7 +29,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.db.DbHelper;
 import org.ohmage.logprobe.Log;
 import org.ohmage.logprobe.OhmageAnalytics;

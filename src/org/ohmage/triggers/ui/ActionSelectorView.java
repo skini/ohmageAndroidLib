@@ -1,16 +1,17 @@
 package org.ohmage.triggers.ui;
 
-import org.ohmage.R;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.RelativeLayout;
+
+import org.ohmage.library.R;
 
 public class ActionSelectorView extends RelativeLayout {
 	static final int BACKGROUND_COLOR = 0xFFFFFFFF;

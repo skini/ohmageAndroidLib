@@ -23,7 +23,7 @@ import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapController;
 
 import org.ohmage.OhmageApplication;
-import org.ohmage.R;
+import org.ohmage.library.R;
 
 public class OhmageMapFragment extends MapFragment {
 

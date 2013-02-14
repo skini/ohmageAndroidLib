@@ -22,6 +22,7 @@ import android.database.Cursor;
 import android.preference.PreferenceManager;
 
 import org.ohmage.db.DbContract.Responses;
+import org.ohmage.library.R;
 
 import java.util.Calendar;
 

@@ -41,6 +41,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.ohmage.Utilities.CountingInputStream;
 import org.ohmage.conditionevaluator.DataPoint.PromptType;
+import org.ohmage.library.R;
 import org.ohmage.logprobe.Analytics;
 import org.ohmage.logprobe.Log;
 

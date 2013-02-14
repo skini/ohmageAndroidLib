@@ -88,7 +88,7 @@ import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
 
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.fragments.OhmageMapFragment;
 import org.ohmage.logprobe.Analytics;
 import org.ohmage.logprobe.Log;

@@ -21,7 +21,7 @@ import android.os.Environment;
 import android.util.Log;
 
 import org.ohmage.AccountHelper;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.Utilities;
 
 import java.io.File;

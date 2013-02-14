@@ -18,7 +18,7 @@ package org.ohmage.prompt.multichoicecustom;
 import org.json.JSONArray;
 import org.ohmage.AccountHelper;
 import org.ohmage.OhmageMarkdown;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
 import org.ohmage.Utilities.KVLTriplet;
 import org.ohmage.activity.SurveyActivity;

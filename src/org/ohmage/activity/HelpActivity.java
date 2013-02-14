@@ -26,7 +26,7 @@ import android.webkit.WebView;
 import android.widget.TabHost;
 
 import org.ohmage.ConfigHelper;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
 import org.ohmage.Utilities;
 import org.ohmage.ui.BaseActivity;

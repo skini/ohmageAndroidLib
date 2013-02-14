@@ -32,7 +32,7 @@ import android.widget.Toast;
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
 import org.ohmage.AccountHelper;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
 import org.ohmage.logprobe.Analytics;
 import org.ohmage.logprobe.Log;

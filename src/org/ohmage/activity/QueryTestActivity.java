@@ -26,7 +26,7 @@ import android.widget.Toast;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.db.DbContract;
 import org.ohmage.responsesync.ResponseSyncService;
 

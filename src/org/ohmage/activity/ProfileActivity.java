@@ -11,7 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import org.ohmage.AccountActivityHelper;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.logprobe.Analytics;
 import org.ohmage.ui.BaseInfoActivity;
 

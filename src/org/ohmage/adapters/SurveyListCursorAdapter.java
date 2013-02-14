@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.ohmage.ConfigHelper;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.activity.SubActionClickListener;
 import org.ohmage.db.DbContract.Campaigns;
 import org.ohmage.db.DbContract.Surveys;

@@ -21,7 +21,7 @@ import org.ohmage.OhmageApi;
 import org.ohmage.OhmageApi.CampaignReadResponse;
 import org.ohmage.OhmageApi.Response;
 import org.ohmage.OhmageApi.Result;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
 import org.ohmage.activity.ErrorDialogActivity;
 import org.ohmage.db.DbContract;

@@ -1,7 +1,7 @@
 package org.ohmage.activity;
 
 import org.ohmage.ConfigHelper;
-import org.ohmage.R;
+import org.ohmage.library.R;
 import org.ohmage.db.DbContract.Surveys;
 import org.ohmage.fragments.SurveyListFragment;
 import org.ohmage.fragments.SurveyListFragment.OnSurveyActionListener;

@@ -13,9 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import org.ohmage.R;
 import org.ohmage.UIUtils;
 import org.ohmage.activity.DashboardActivity;
+import org.ohmage.library.R;
 import org.ohmage.logprobe.Analytics;
 
 import java.util.ArrayList;
