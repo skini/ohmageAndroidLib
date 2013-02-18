@@ -47,7 +47,6 @@ import org.ohmage.NotificationHelper;
 import org.ohmage.OhmageApi.AuthenticateResponse;
 import org.ohmage.OhmageApi.CampaignReadResponse;
 import org.ohmage.OhmageApplication;
-import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
 import org.ohmage.Utilities;
 import org.ohmage.activity.DashboardActivity;
@@ -55,9 +54,11 @@ import org.ohmage.async.CampaignReadTask;
 import org.ohmage.db.DbContract;
 import org.ohmage.db.Models.Campaign;
 import org.ohmage.db.utils.Lists;
+import org.ohmage.library.R;
 import org.ohmage.logprobe.Analytics;
 import org.ohmage.logprobe.LogProbe.Status;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -620,6 +621,16 @@ public class AuthenticatorActivity extends AccountAuthenticatorFragmentActivity 
      */
     private boolean ensureServerUrl() {
         String text = mServerEdit.getText().toString();
+
+        if(TextUtils.isEmpty(text))
+            return false;
+
+        // Assume they want https by default
+        URI uri = URI.create(text.split(" ")[0]);
+        if(uri.getScheme() == null) {
+            text = "https://" + text;
+        }
+
         text = URLUtil.guessUrl(text);
 
         if (URLUtil.isHttpsUrl(text) || URLUtil.isHttpUrl(text)) {
