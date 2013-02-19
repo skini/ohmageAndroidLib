@@ -3,6 +3,7 @@ package org.ohmage.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
@@ -10,10 +11,10 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import org.ohmage.ConfigHelper;
-import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
 import org.ohmage.Utilities;
 import org.ohmage.db.Models.Campaign;
+import org.ohmage.library.R;
 import org.ohmage.logprobe.Analytics;
 import org.ohmage.logprobe.Log;
 import org.ohmage.logprobe.LogProbe.Status;
@@ -81,7 +82,16 @@ public class OhmagePreferenceActivity extends PreferenceActivity  {
 		findPreference(STATUS_SERVER_URL).setSummary(ConfigHelper.serverUrl());
 
 		try {
-			findPreference(INFO_OHMAGE_VERSION).setSummary(Utilities.getVersion(this));
+            Preference v = findPreference(INFO_OHMAGE_VERSION);
+            v.setSummary(Utilities.getVersion(this));
+            v.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    Toast.makeText(preference.getContext(), R.string.commit_hash, Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+            });
 		} catch (Exception e) {
 			Log.e(TAG, "unable to retrieve version", e);
 		}

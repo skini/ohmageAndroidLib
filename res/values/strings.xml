@@ -383,4 +383,7 @@
     <string name="crash_report_subject">Ohmage Crash Report: %1$s</string>
     <string name="crash_report_acquiring_logs">Collecting logs from system…</string>
     <string name="crash_report_chooser_title">Ohmage Force-Close Report</string>
+
+    <!-- Commit hash is inserted here by the build script -->
+    <string name="commit_hash">meow</string>
 </resources>
