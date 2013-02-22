@@ -20,7 +20,7 @@ Fork this project if you which to make your own changes.
 Dependencies
 ------------
 
-You will need to download [ProbeLog](https://github.com/cens/ProbeLog) and make it available to
+You will need to download [LogProbe](https://github.com/cens/LogProbe) and make it available to
 ohmage as a library apk. (Alternatively you could just change all logging functionality to use
 the default android logs instead of using ProbeLog)
 
