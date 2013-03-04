@@ -3,7 +3,38 @@
     package="org.ohmage.library"
     android:versionCode="13021500"
     android:versionName="2.15" >
+    
+    <!-- BEGIN SRK -->
+	<!-- Launching -->
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    
+    <!-- All probes -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    
+    <!-- Location probe -->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>   
+    
+    <!-- Wifi probe -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> 
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/> 
+    
+    <!-- Bluetooth probe -->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    
+    <!-- No permissons for Accelerometer Probe -->
+    
+    <!-- No permissions for Light Sensor Probe -->
+    
+    <!-- Time Offset probe -->
+    <uses-permission android:name="android.permission.INTERNET"/> 
+   
+    <!-- SD card bWrite permission -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> 
+   
 
+	<!-- END SRK -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -35,6 +66,41 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/OhmageTheme" >
+        <!-- Begin SRK -->
+        <!-- Probe Services -->
+        <service android:name="edu.mit.media.funf.probe.builtin.LocationProbe"></service>
+        <service android:name="edu.mit.media.funf.probe.builtin.WifiProbe"></service>
+        
+        <service android:name="edu.mit.media.funf.probe.builtin.BluetoothProbe"></service>
+		<service android:name="edu.mit.media.funf.probe.builtin.AccelerometerSensorProbe"></service>
+        <service android:name="edu.mit.media.funf.probe.builtin.LightSensorProbe"></service>
+        <service android:name="edu.mit.media.funf.probe.builtin.TimeOffsetProbe"></service>
+        
+        
+        
+        <!-- Framework services -->
+        <service android:name="edu.mit.media.funf.wifiscanner.MainPipeline"></service>
+        <service android:name="edu.mit.media.funf.storage.NameValueDatabaseService"></service>
+        <service android:name="edu.mit.media.funf.storage.HttpUploadService"></service>
+        
+        
+        
+        <receiver android:name=".LauncherReceiver" android:enabled="true">
+        	<intent-filter>
+        		<action android:name="android.intent.action.BATTERY_CHANGED" />
+        		<action android:name="android.intent.action.BOOT_COMPLETED" />
+        		<action android:name="android.intent.action.DOCK_EVENT" />
+        		<action android:name="android.intent.action.ACTION_SCREEN_ON" />
+        		<action android:name="android.intent.action.USER_PRESENT" />
+        	</intent-filter>
+        </receiver>
+        
+        
+        
+        
+        
+        
+        <!-- END SRK -->
         <activity android:name="org.ohmage.activity.OhmageLauncher" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -162,7 +228,9 @@
                 <data android:mimeType="vnd.android.cursor.item/vnd.ohmage.campaign" />
             </intent-filter>
         </activity>
+        <!-- SHLOKA this is super important place, to add the launcher and main  -->
         <activity
+            
             android:name="org.ohmage.activity.SurveyInfoActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_survey_info"

@@ -24,7 +24,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import org.ohmage.logprobe.Log;
-
+//SHLOKA 
 /*
  * The database to store all triggers in the system. Each row 
  * is as follows:

@@ -1,5 +1,6 @@
 package org.ohmage.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.ContentObserver;
 import android.database.Cursor;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 
 import com.google.android.imageloader.ImageLoader;
 
+import edu.mit.media.funf.wifiscanner.MainPipeline;
+
 import org.ohmage.ConfigHelper;
 import org.ohmage.library.R;
 import org.ohmage.UserPreferencesHelper;
@@ -32,6 +35,7 @@ import org.ohmage.triggers.base.TriggerDB;
 import org.ohmage.ui.BaseInfoActivity;
 import org.ohmage.ui.OhmageFilterable.CampaignFilter;
 import org.ohmage.ui.OhmageFilterable.CampaignSurveyFilter;
+//import edu.mit.media.funf.wifiscanner.MainPipeline;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -195,12 +199,19 @@ public class SurveyInfoActivity extends BaseInfoActivity implements LoaderManage
 				public void onClick(View v) {
 					Analytics.widget(v);
 					// fire off the survey intent
+					//SHLOKA HERE IS WHERE YOU START TRIGGERS TO GET DATA
+					
+					Intent archiveIntent = new Intent(mContext, MainPipeline.class);
+					archiveIntent.setAction(MainPipeline.ACTION_ENABLE);
+					startService(archiveIntent);
+					
 					Intent intent = new Intent(mContext, SurveyActivity.class);
 					intent.putExtra("campaign_urn", campaignUrn);
 					intent.putExtra("survey_id", surveyID);
 					intent.putExtra("survey_title", surveyTitle);
 					intent.putExtra("survey_submit_text", surveySubmitText);
 					startActivity(intent);
+					
 				}
 			});
 		}

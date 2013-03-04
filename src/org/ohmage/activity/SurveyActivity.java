@@ -86,6 +86,9 @@ import org.ohmage.service.WakefulService;
 import org.ohmage.triggers.glue.TriggerFramework;
 import org.xmlpull.v1.XmlPullParserException;
 
+
+//import edu.mit.media.funf.wifiscanner.MainPipeline;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -353,6 +356,17 @@ public class SurveyActivity extends Activity implements LocationListener {
             int id = v.getId();
             if (id == R.id.next_button) {
                 if (mReachedEnd) {
+                	// SHLOKA - SURVEY ENDED SO CLOSE THE TRIGGERS 
+                	/*final Context context = v.getContext();
+                	Intent archiveIntent = new Intent(context, MainPipeline.class);
+                	String action = MainPipeline.ACTION_DISABLE;
+                	archiveIntent.setAction(action);
+                	startService(archiveIntent);
+
+                	Intent archiveIntent2 = new Intent(context, MainPipeline.class);
+                	archiveIntent2.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
+                	startService(archiveIntent2);
+                	*/
                     if (!mSurveyFinished) {
                         mSurveyFinished = true;
                         String uuid = storeResponse();
