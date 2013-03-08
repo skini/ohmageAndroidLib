@@ -132,7 +132,7 @@ public class MainPipeline extends ConfiguredPipeline {
 	public static FunfConfig getMainConfig(Context context) {
 		FunfConfig config = getConfig(context, MAIN_CONFIG);
 		if (config.getName() == null) {			
-			String jsonString = getStringFromAsset(context, "default_config.json");
+			String jsonString = getStringFromAsset(context, "funf_config.json");
 			if (jsonString == null) {
 				Log.e(TAG, "Error loading default config.  Using blank config.");
 				jsonString = "{}";
