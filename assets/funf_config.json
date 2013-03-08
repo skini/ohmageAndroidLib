@@ -9,7 +9,7 @@
 	            { "PERIOD": 900 }
 	        ],
 		"edu.mit.media.funf.probe.builtin.BluetoothProbe":[
-		    { "PERIOD: 900 }
+		    { "PERIOD": 900 }
 		],
 		"edu.mit.media.funf.probe.builtin.AccelerometerSensorProbe":[
 		    { "DURATION": 30, "PERIOD": 900 }
