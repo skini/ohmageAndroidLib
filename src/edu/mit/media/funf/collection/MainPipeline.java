@@ -46,8 +46,9 @@ import edu.mit.media.funf.probe.builtin.WifiProbe;
 import edu.mit.media.funf.probe.builtin.BluetoothProbe;
 import edu.mit.media.funf.probe.builtin.AccelerometerSensorProbe;
 import edu.mit.media.funf.probe.builtin.LightSensorProbe;
-//import edu.mit.media.funf.probe.builtin.TimeOffsetProbe;
+
 import edu.mit.media.funf.storage.BundleSerializer;
+
 public class MainPipeline extends ConfiguredPipeline {
 	
 	public static final String TAG = "FUNFMainPipeline";
@@ -96,7 +97,6 @@ public class MainPipeline extends ConfiguredPipeline {
 	@Override
 	public void onDataReceived(Bundle data) {
 		super.onDataReceived(data);
-        Log.d(TAG, JsonUtils.getGson().toJson(data));
 		incrementCount();
 	}
 
