@@ -17,6 +17,8 @@ import org.ohmage.async.CampaignReadLoaderCallbacks;
 import org.ohmage.logprobe.Analytics;
 import org.ohmage.ui.BaseActivity;
 
+import edu.mit.media.funf.collection.MainPipeline;
+
 public class DashboardActivity extends BaseActivity {
     private static final String TAG = "DashboardActivity";
 
@@ -116,6 +118,15 @@ public class DashboardActivity extends BaseActivity {
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         mCampaignReadLoader.onRestoreInstanceState(savedInstanceState);
+    }
+    
+    @Override
+    public void onDestroy() {
+        android.util.Log.d("FUNF", "" +"FUNF STOP PROBES");
+    	Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
+    	intent.setAction(MainPipeline.ACTION_STOP_PROBES);
+    	startService(intent);
+    	super.onDestroy();
     }
 
     private void enableAllButtons() {
