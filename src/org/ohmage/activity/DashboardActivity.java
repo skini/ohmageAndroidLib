@@ -17,6 +17,8 @@ import org.ohmage.async.CampaignReadLoaderCallbacks;
 import org.ohmage.logprobe.Analytics;
 import org.ohmage.ui.BaseActivity;
 
+import edu.mit.media.funf.collection.MainPipeline;
+
 public class DashboardActivity extends BaseActivity {
     private static final String TAG = "DashboardActivity";
 
@@ -61,6 +63,13 @@ public class DashboardActivity extends BaseActivity {
 
         mCampaignReadLoader = new CampaignReadLoaderCallbacks(this);
         mCampaignReadLoader.onCreate();
+        
+        // Enable Funf and enable logging
+        Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
+        intent.setAction(MainPipeline.ACTION_ENABLE);
+        startService(intent);
+        intent.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
+        startService(intent);       
     }
 
     private void ensureUI() {
@@ -116,6 +125,15 @@ public class DashboardActivity extends BaseActivity {
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         mCampaignReadLoader.onRestoreInstanceState(savedInstanceState);
+    }
+    
+    @Override
+    public void onDestroy() {
+        // user closed app, stop funf probes
+        Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
+        intent.setAction(MainPipeline.ACTION_STOP_PROBES);
+        startService(intent);
+        super.onDestroy();
     }
 
     private void enableAllButtons() {

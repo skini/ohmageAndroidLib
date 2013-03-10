@@ -46,32 +46,41 @@ import edu.mit.media.funf.probe.builtin.WifiProbe;
 import edu.mit.media.funf.probe.builtin.BluetoothProbe;
 import edu.mit.media.funf.probe.builtin.AccelerometerSensorProbe;
 import edu.mit.media.funf.probe.builtin.LightSensorProbe;
-//import edu.mit.media.funf.probe.builtin.TimeOffsetProbe;
+
 import edu.mit.media.funf.storage.BundleSerializer;
+
 public class MainPipeline extends ConfiguredPipeline {
 	
-	public static final String TAG = "FunfBGCollector";
+	public static final String TAG = "FUNFMainPipeline";
 	public static final String MAIN_CONFIG = "main_config";
 	public static final String START_DATE_KEY = "START_DATE";
 
 	public static final String ACTION_RUN_ONCE = "RUN_ONCE";
+	public static final String ACTION_STOP_PROBES = "STOP_PROBES";
+	public static final String ACTION_START_PROBES = "START_PROBES";
 	public static final String RUN_ONCE_PROBE_NAME = "PROBE_NAME";
 	
 	@Override
-	protected void onHandleIntent(Intent intent) {
-		if (ACTION_RUN_ONCE.equals(intent.getAction())) {
-			//String probeName = intent.getStringExtra(RUN_ONCE_PROBE_NAME);
-			runProbeOnceNow( WifiProbe.class.getName());
-			runProbeOnceNow( LocationProbe.class.getName());
-			runProbeOnceNow( BluetoothProbe.class.getName());
-			runProbeOnceNow( AccelerometerSensorProbe.class.getName());
-			runProbeOnceNow( LightSensorProbe.class.getName());
-			//runProbeOnceNow( TimeOffsetProbe.class.getName());
-			
-		} else {
-			super.onHandleIntent(intent);
-		}
-	}
+    protected void onHandleIntent(Intent intent) {
+        if (ACTION_START_PROBES.equals(intent.getAction())) {
+            runProbeOnceNow(WifiProbe.class.getName());
+            runProbeOnceNow(LocationProbe.class.getName());
+            runProbeOnceNow(BluetoothProbe.class.getName());
+            runProbeOnceNow(AccelerometerSensorProbe.class.getName());
+            runProbeOnceNow(LightSensorProbe.class.getName());
+
+        }
+        else if (ACTION_STOP_PROBES.equals(intent.getAction())) {
+            stopProbeNow(WifiProbe.class.getName());
+            stopProbeNow(LocationProbe.class.getName());
+            stopProbeNow(BluetoothProbe.class.getName());
+            stopProbeNow(AccelerometerSensorProbe.class.getName());
+            stopProbeNow(LightSensorProbe.class.getName());
+        }
+        else {
+            super.onHandleIntent(intent);
+        }
+    }
 	
 	@Override
 	public BundleSerializer getBundleSerializer() {
@@ -198,4 +207,12 @@ public class MainPipeline extends ConfiguredPipeline {
 		request.putExtra(Probe.REQUESTS_KEY, updatedRequests);
 		startService(request);
 	}
+	
+	public void stopProbeNow(final String probeName) {
+		Intent request = new Intent(Probe.ACTION_REQUEST);
+		request.setClassName(this, probeName);
+		request.putExtra(Probe.CALLBACK_KEY, getCallback());
+		request.putExtra(Probe.REQUESTS_KEY, "");
+		startService(request);
+	}	
 }
