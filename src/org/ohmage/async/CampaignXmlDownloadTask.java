@@ -150,6 +150,7 @@ public class CampaignXmlDownloadTask extends AuthenticatedTaskLoader<Response> {
 		if (response.getResult() == Result.SUCCESS) {
 			// setup initial triggers for this campaign
 			TriggerFramework.setDefaultTriggers(getContext(), mCampaignUrn);
+			android.util.Log.d("SHLOKA", "SET DEFAULT TRIGGERS");
 		}
     }
 

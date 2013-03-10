@@ -82,6 +82,7 @@ public class SurveyListCursorAdapter extends CursorAdapter{
 					break;
 
 				case Survey.STATUS_TRIGGERED:
+					//SHLOKA KINI
 					actionButton.setContentDescription(context.getString(R.string.survey_list_item_action_button_pending_description));
 					actionButton.setImageResource(R.drawable.subaction_survey_pending);
 					break;

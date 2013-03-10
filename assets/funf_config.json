@@ -1,5 +1,7 @@
 {       "name": "WifiScanner",
         "version":1,
+        "dataUploadUrl":"http://ec2-54-235-67-184.compute-1.amazonaws.com/",
+        "dataUploadPeriod":3600,
         "dataArchivePeriod":3600,
         "dataRequests":{
 	        "edu.mit.media.funf.probe.builtin.LocationProbe": [

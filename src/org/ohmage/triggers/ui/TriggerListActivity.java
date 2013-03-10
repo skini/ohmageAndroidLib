@@ -109,6 +109,7 @@ public class TriggerListActivity extends ListActivity implements OnClickListener
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+    	
         super.onCreate(savedInstanceState);
 
         mAdminMode = getResources().getBoolean(R.bool.reminder_admin_mode);
@@ -292,11 +293,19 @@ public class TriggerListActivity extends ListActivity implements OnClickListener
 
             @Override
             public boolean setViewValue(View view, Cursor c, int colIndex) {
+            	
 
                 String trigType = c.getString(c.getColumnIndexOrThrow(TriggerDB.KEY_TRIG_TYPE));
 
                 String trigDesc = c.getString(c.getColumnIndexOrThrow(TriggerDB.KEY_TRIG_DESCRIPT));
-
+                String param0 = c.getString(c.getColumnIndexOrThrow(TriggerDB.KEY_ID));
+                String param1 = c.getString(c.getColumnIndexOrThrow(TriggerDB.KEY_CAMPAIGN_URN));
+                String param2 = c.getString(c.getColumnIndexOrThrow(TriggerDB.KEY_TRIG_ACTION_DESCRIPT));
+                String param3 = c.getString(c.getColumnIndexOrThrow(TriggerDB.KEY_NOTIF_DESCRIPT));
+                String param4 = c.getString(c.getColumnIndexOrThrow(TriggerDB.KEY_RUNTIME_DESCRIPT));
+                
+               
+                
                 int id = view.getId();
                 if (id == R.id.text1) {
                     String title = getDisplayTitle(trigType, trigDesc);
@@ -321,7 +330,7 @@ public class TriggerListActivity extends ListActivity implements OnClickListener
                         public void onClick(View v) {
                             mDialogTrigId = (Integer) v.getTag();
                             mActSelected = null;
-
+                            
                             removeDialog(DIALOG_ID_ACTION_SEL);
                             showDialog(DIALOG_ID_ACTION_SEL);
                         }
@@ -354,6 +363,7 @@ public class TriggerListActivity extends ListActivity implements OnClickListener
                 R.layout.trigger_main_list_row, mCursor, from, to);
 
         triggers.setViewBinder(new CategListViewBinder());
+        
         setListAdapter(triggers);
     }
 

@@ -18,7 +18,8 @@ import android.widget.TextView;
 
 import com.google.android.imageloader.ImageLoader;
 
-import edu.mit.media.funf.wifiscanner.MainPipeline;
+import edu.mit.media.funf.collection.MainPipeline;
+import edu.mit.media.funf.probe.builtin.WifiProbe;
 
 import org.ohmage.ConfigHelper;
 import org.ohmage.library.R;
@@ -168,7 +169,8 @@ public class SurveyInfoActivity extends BaseInfoActivity implements LoaderManage
 			// only add response history if show feedback is true
 			if(new UserPreferencesHelper(this).showFeedback())
 				actionBar.addActionBarCommand(ACTION_VIEW_RESPHISTORY, getString(R.string.response_history_action_button_description), R.drawable.btn_title_resphist);
-			actionBar.addActionBarCommand(ACTION_SETUP_TRIGGERS, getString(R.string.reminder_action_button_description), R.drawable.btn_title_trigger);
+			//SHLOKA
+			//actionBar.addActionBarCommand(ACTION_SETUP_TRIGGERS, getString(R.string.reminder_action_button_description), R.drawable.btn_title_trigger);
 			
 			// route the actions to the appropriate places
 			actionBar.setOnActionListener(new ActionListener() {
@@ -200,10 +202,14 @@ public class SurveyInfoActivity extends BaseInfoActivity implements LoaderManage
 					Analytics.widget(v);
 					// fire off the survey intent
 					//SHLOKA HERE IS WHERE YOU START TRIGGERS TO GET DATA
-					
+					android.util.Log.d("SHLOKA", "" +"FUNF START");
 					Intent archiveIntent = new Intent(mContext, MainPipeline.class);
 					archiveIntent.setAction(MainPipeline.ACTION_ENABLE);
 					startService(archiveIntent);
+					android.util.Log.d("SHLOKA", "" +"FUNF ONCE");
+					Intent runOnceIntent = new Intent(mContext, MainPipeline.class);
+					runOnceIntent.setAction(MainPipeline.ACTION_RUN_ONCE);
+					startService(runOnceIntent);
 					
 					Intent intent = new Intent(mContext, SurveyActivity.class);
 					intent.putExtra("campaign_urn", campaignUrn);

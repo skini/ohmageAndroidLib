@@ -150,7 +150,8 @@ public class CampaignInfoActivity extends BaseInfoActivity implements LoaderMana
 			if (campaignStatus == Campaign.STATUS_READY) {
 			    if(new UserPreferencesHelper(this).showFeedback())
 			        actionBar.addActionBarCommand(ACTION_VIEW_RESPHISTORY, getString(R.string.response_history_action_button_description), R.drawable.btn_title_resphist);
-				actionBar.addActionBarCommand(ACTION_SETUP_TRIGGERS, getString(R.string.reminder_action_button_description), R.drawable.btn_title_trigger);
+				//SHLOKA
+			    //actionBar.addActionBarCommand(ACTION_SETUP_TRIGGERS, getString(R.string.reminder_action_button_description), R.drawable.btn_title_trigger);
 				
 				// route the actions to the appropriate places
 				actionBar.setOnActionListener(new ActionListener() {

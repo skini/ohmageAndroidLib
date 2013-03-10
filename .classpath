@@ -26,5 +26,6 @@
 			<attribute name="javadoc_location" value="file:/Users/cketcham/libs/google-gson-2.2.2/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/konkini11/Documents/funf/funf-0.3.1.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

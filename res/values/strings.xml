@@ -2,7 +2,7 @@
 <resources>
 
     <!-- General -->
-    <string name="app_name">ohmage</string>
+    <string name="app_name">stress-study</string>
     <string name="server_name">ohmage</string>
     <string name="cancel">Cancel</string>
     <string name="remove">Remove</string>

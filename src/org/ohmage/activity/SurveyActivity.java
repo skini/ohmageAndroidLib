@@ -87,7 +87,7 @@ import org.ohmage.triggers.glue.TriggerFramework;
 import org.xmlpull.v1.XmlPullParserException;
 
 
-//import edu.mit.media.funf.wifiscanner.MainPipeline;
+import edu.mit.media.funf.collection.MainPipeline;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -357,16 +357,16 @@ public class SurveyActivity extends Activity implements LocationListener {
             if (id == R.id.next_button) {
                 if (mReachedEnd) {
                 	// SHLOKA - SURVEY ENDED SO CLOSE THE TRIGGERS 
-                	/*final Context context = v.getContext();
-                	Intent archiveIntent = new Intent(context, MainPipeline.class);
-                	String action = MainPipeline.ACTION_DISABLE;
-                	archiveIntent.setAction(action);
-                	startService(archiveIntent);
-
+                	android.util.Log.d("SHLOKA", "FUNF ARCHIVE");
+                	final Context context = v.getContext();
                 	Intent archiveIntent2 = new Intent(context, MainPipeline.class);
                 	archiveIntent2.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
                 	startService(archiveIntent2);
-                	*/
+                	android.util.Log.d("SHLOKA", "" +"FUNF DISABLE");
+                	Intent archiveIntent = new Intent(context, MainPipeline.class);
+                	archiveIntent.setAction(MainPipeline.ACTION_DISABLE);
+                	startService(archiveIntent);
+                	
                     if (!mSurveyFinished) {
                         mSurveyFinished = true;
                         String uuid = storeResponse();

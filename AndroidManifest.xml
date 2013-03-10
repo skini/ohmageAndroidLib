@@ -74,12 +74,12 @@
         <service android:name="edu.mit.media.funf.probe.builtin.BluetoothProbe"></service>
 		<service android:name="edu.mit.media.funf.probe.builtin.AccelerometerSensorProbe"></service>
         <service android:name="edu.mit.media.funf.probe.builtin.LightSensorProbe"></service>
-        <service android:name="edu.mit.media.funf.probe.builtin.TimeOffsetProbe"></service>
+        <!--  <service android:name="edu.mit.media.funf.probe.builtin.TimeOffsetProbe"></service>-->
         
         
         
         <!-- Framework services -->
-        <service android:name="edu.mit.media.funf.wifiscanner.MainPipeline"></service>
+        <service android:name="edu.mit.media.funf.collection.MainPipeline"></service>
         <service android:name="edu.mit.media.funf.storage.NameValueDatabaseService"></service>
         <service android:name="edu.mit.media.funf.storage.HttpUploadService"></service>
         

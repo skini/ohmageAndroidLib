@@ -103,6 +103,8 @@ public class NotifSurveyAdaptor {
 		}
 		
 		if(!rtDesc.hasTriggerTimeStamp()) {
+			//SHLOKA
+			Log.e("SHLOKA",runTime+ " " + notif + " " + actions + " " + campaignUrn);
 			Log.e(TAG, "NotifSurveyAdaptor: Trigger time stamp is invalid");
 			
 			return actSurveys;

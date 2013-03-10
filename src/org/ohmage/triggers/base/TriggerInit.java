@@ -248,6 +248,7 @@ public class TriggerInit {
 	 * @param camapaignUrn - filter for triggers which have this campaignUrn (set to null for no filtering)
 	 */
 	public static void addDefaultTriggers(Context context, String campaignUrn) {
+		android.util.Log.d("SHLOKA", "ADD DEFAULT TRIGGERS");
 		try {
 			JSONArray triggersList = new JSONObject(Utilities.convertStreamToString(context.getResources().openRawResource(R.raw.triggers))).getJSONArray("triggers");
 			for(int i=0;i<triggersList.length();i++) {

@@ -156,8 +156,21 @@ public class OhmageApplication extends Application {
         server = server.split(" ")[0];
 
         ConfigHelper config = new ConfigHelper(this);
-
-        if ("https://lausd.mobilizingcs.org/".equals(server)) {
+        
+        if ("http://ec2-54-235-67-184.compute-1.amazonaws.com/".equals(server)) {
+            userPrefs.setShowFeedback(false);
+            userPrefs.setShowMobility(false);
+            userPrefs.setShowUploadQueue(false);
+            userPrefs.setShowProfile(false);
+            userPrefs.setShowMobilityFeedback(false);
+            userPrefs.setUploadResponsesWifiOnly(true);
+            userPrefs.setUploadProbesWifiOnly(false);
+            //userPrefs.setIsSingleCampaignMode(true);
+            config.setAdminMode(false);
+            config.setLogLevel("verbose");
+            config.setLogAnalytics(true);
+            updateLogLevel();
+        } else if ("https://lausd.mobilizingcs.org/".equals(server)) {
             userPrefs.setShowFeedback(true);
             userPrefs.setShowMobility(false);
             userPrefs.setUploadResponsesWifiOnly(false);
