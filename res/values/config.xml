@@ -6,19 +6,19 @@
     <!-- Make sure these names match the names in LoginActivity#configureForDeployment -->
     <string-array name="servers">
         <item>https://ec2-54-235-67-184.compute-1.amazonaws.com/</item>
-        <item>https://play.ohmage.org/ (Public)</item>
+        <!-- <item>https://play.ohmage.org/ (Public)</item>
         <item>https://pilots.mobilizelabs.org/</item>
-        <item>https://lausd.mobilizingcs.org/</item>
+        <item>https://lausd.mobilizingcs.org/</item> -->
     </string-array>
 
     <!--
          If false, the user will not be able to change the server and the first
          server in the server list will be used.
     -->
-    <item name="allow_custom_server" type="bool">true</item>
+    <item name="allow_custom_server" type="bool">false</item>
 
     <!-- If false, the user will not be able to see the register link. -->
-    <item name="allow_user_registration" type="bool">true</item>
+    <item name="allow_user_registration" type="bool">false</item>
 
     <!--
          Default option for single campaign mode. This can be changed by the user
@@ -42,6 +42,6 @@
     <item name="log_analytics" type="bool">false</item>
 
     <!-- Determines the log level to be logged to systemlog -->
-    <item name="log_level" type="string">error</item>
+    <item name="log_level" type="string">verbose</item>
 
 </resources>
