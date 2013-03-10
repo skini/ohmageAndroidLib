@@ -26,7 +26,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.net.http.AndroidHttpClient;
+// import android.net.http.AndroidHttpClient;
+import edu.dartmouth.cs.net.AndroidHttpClient;
 import android.os.Build;
 import android.os.Handler;
 
@@ -157,7 +158,7 @@ public class OhmageApplication extends Application {
 
         ConfigHelper config = new ConfigHelper(this);
         
-        if ("http://ec2-54-235-67-184.compute-1.amazonaws.com/".equals(server)) {
+        if ("https://ec2-54-235-67-184.compute-1.amazonaws.com/".equals(server)) {
             userPrefs.setShowFeedback(false);
             userPrefs.setShowMobility(false);
             userPrefs.setShowUploadQueue(false);
@@ -394,7 +395,7 @@ public class OhmageApplication extends Application {
     public static AndroidHttpClient getHttpClient() {
         if (mHttpClient == null)
             mHttpClient = AndroidHttpClient.newInstance(Build.MANUFACTURER + " " + Build.MODEL
-                    + " (" + Build.VERSION.RELEASE + ")");
+                    + " (" + Build.VERSION.RELEASE + ")", getContext());
         return mHttpClient;
     }
 
