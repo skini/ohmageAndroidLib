@@ -200,17 +200,13 @@ public class SurveyInfoActivity extends BaseInfoActivity implements LoaderManage
 				@Override
 				public void onClick(View v) {
 					Analytics.widget(v);
-					// fire off the survey intent
-					//SHLOKA HERE IS WHERE YOU START TRIGGERS TO GET DATA
-					android.util.Log.d("SHLOKA", "" +"FUNF START");
-					Intent archiveIntent = new Intent(mContext, MainPipeline.class);
-					archiveIntent.setAction(MainPipeline.ACTION_ENABLE);
-					startService(archiveIntent);
-					android.util.Log.d("SHLOKA", "" +"FUNF ONCE");
-					Intent runOnceIntent = new Intent(mContext, MainPipeline.class);
-					runOnceIntent.setAction(MainPipeline.ACTION_RUN_ONCE);
-					startService(runOnceIntent);
 					
+                    // user start taking survey, start funf probes
+					Intent funfIntent = new Intent(getApplicationContext(), MainPipeline.class);
+					funfIntent.setAction(MainPipeline.ACTION_START_PROBES);
+					startService(funfIntent);
+
+					// fire off the survey intent					
 					Intent intent = new Intent(mContext, SurveyActivity.class);
 					intent.putExtra("campaign_urn", campaignUrn);
 					intent.putExtra("survey_id", surveyID);

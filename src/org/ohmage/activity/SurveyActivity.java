@@ -356,21 +356,11 @@ public class SurveyActivity extends Activity implements LocationListener {
             int id = v.getId();
             if (id == R.id.next_button) {
                 if (mReachedEnd) {
-                	// SHLOKA - SURVEY ENDED SO CLOSE THE TRIGGERS 
-                	final Context context = v.getContext();
-                	android.util.Log.d("SHLOKA", "" +"FUNF ONCE AGAIN");
-					Intent runOnceIntent = new Intent(context, MainPipeline.class);
-					runOnceIntent.setAction(MainPipeline.ACTION_RUN_ONCE);
-					startService(runOnceIntent);
-                	android.util.Log.d("SHLOKA", "FUNF ARCHIVE");	
-                	Intent archiveIntent2 = new Intent(context, MainPipeline.class);
-                	archiveIntent2.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
-                	startService(archiveIntent2);
-                	android.util.Log.d("SHLOKA", "" +"FUNF DISABLE");
-                	Intent archiveIntent = new Intent(context, MainPipeline.class);
-                	archiveIntent.setAction(MainPipeline.ACTION_DISABLE);
-                	startService(archiveIntent);
-                	
+                    // user reached end of survey, stop funf probes
+                    Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
+                    intent.setAction(MainPipeline.ACTION_STOP_PROBES);
+                    startService(intent);
+                    
                     if (!mSurveyFinished) {
                         mSurveyFinished = true;
                         String uuid = storeResponse();
