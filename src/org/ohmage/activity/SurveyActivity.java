@@ -357,8 +357,12 @@ public class SurveyActivity extends Activity implements LocationListener {
             if (id == R.id.next_button) {
                 if (mReachedEnd) {
                 	// SHLOKA - SURVEY ENDED SO CLOSE THE TRIGGERS 
-                	android.util.Log.d("SHLOKA", "FUNF ARCHIVE");
                 	final Context context = v.getContext();
+                	android.util.Log.d("SHLOKA", "" +"FUNF ONCE AGAIN");
+					Intent runOnceIntent = new Intent(context, MainPipeline.class);
+					runOnceIntent.setAction(MainPipeline.ACTION_RUN_ONCE);
+					startService(runOnceIntent);
+                	android.util.Log.d("SHLOKA", "FUNF ARCHIVE");	
                 	Intent archiveIntent2 = new Intent(context, MainPipeline.class);
                 	archiveIntent2.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
                 	startService(archiveIntent2);

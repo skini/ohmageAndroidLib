@@ -1,6 +1,8 @@
 {       "name": "WifiScanner",
         "version":1,
-        "dataUploadUrl":"http://ec2-54-235-67-184.compute-1.amazonaws.com/",
+	"configUpdateUrl":"https://ec2-54-235-67-184.compute-1.amazonaws.com/funfconfig",
+        "configUpdatePeriod":3600,
+        "dataUploadUrl":"https://ec2-54-235-67-184.compute-1.amazonaws.com/data",
         "dataUploadPeriod":3600,
         "dataArchivePeriod":3600,
         "dataRequests":{
