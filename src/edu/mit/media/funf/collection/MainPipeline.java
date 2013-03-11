@@ -21,6 +21,9 @@
  */
 package edu.mit.media.funf.collection;
 
+import org.ohmage.AccountHelper;
+import org.ohmage.OhmageApplication;
+
 import static edu.mit.media.funf.AsyncSharedPrefs.async;
 import org.ohmage.library.R;
 
@@ -51,6 +54,7 @@ import edu.mit.media.funf.storage.BundleSerializer;
 
 public class MainPipeline extends ConfiguredPipeline {
 	
+	private AccountHelper user = new AccountHelper(OhmageApplication.getContext());
 	public static final String TAG = "FUNFMainPipeline";
 	public static final String MAIN_CONFIG = "main_config";
 	public static final String START_DATE_KEY = "START_DATE";
@@ -96,6 +100,7 @@ public class MainPipeline extends ConfiguredPipeline {
 
 	@Override
 	public void onDataReceived(Bundle data) {
+		data.putString("OhmageID_KEY", user.getUsername());
 		super.onDataReceived(data);
 		incrementCount();
 	}

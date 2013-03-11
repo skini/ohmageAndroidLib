@@ -89,6 +89,8 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import edu.mit.media.funf.collection.MainPipeline;
 
+import edu.mit.media.funf.Utils;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -105,7 +107,7 @@ public class SurveyActivity extends Activity implements LocationListener {
     private static final int DIALOG_INSTRUCTIONS_ID = 1;
 
     protected static final int PROMPT_RESULT = 0;
-
+    private String funfFilePrefix;
     private TextView mSurveyTitleText;
     private ProgressBar mProgressBar;
     private TextView mPromptText;
@@ -359,6 +361,7 @@ public class SurveyActivity extends Activity implements LocationListener {
                     // user reached end of survey, stop funf probes
                     Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
                     intent.setAction(MainPipeline.ACTION_STOP_PROBES);
+                    funfFilePrefix = Utils.getInstallationId(getApplicationContext());
                     startService(intent);
                     // Archive data and upload
                     intent.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
@@ -1124,11 +1127,11 @@ public class SurveyActivity extends Activity implements LocationListener {
 
     private String storeResponse() {
         return storeResponse(this, mSurveyId, mLaunchTime, mCampaignUrn, mSurveyTitle,
-                mSurveyElements);
+                mSurveyElements, funfFilePrefix);
     }
 
     public static String storeResponse(Context context, String surveyId, long launchTime,
-            String campaignUrn, String surveyTitle, List<SurveyElement> surveyElements) {
+            String campaignUrn, String surveyTitle, List<SurveyElement> surveyElements, String ffP) {
 
         AccountHelper helper = new AccountHelper(context);
         String username = helper.getUsername();
@@ -1145,11 +1148,14 @@ public class SurveyActivity extends Activity implements LocationListener {
             surveyLaunchContextJson.put("launch_timezone", timezone);
             surveyLaunchContextJson.put("active_triggers",
                     TriggerFramework.getActiveTriggerInfo(context, campaignUrn, surveyTitle));
+            surveyLaunchContextJson.put("id", ffP);
+            
         } catch (JSONException e) {
             Log.e(TAG, "JSONException when trying to generate survey launch context json", e);
             throw new RuntimeException(e);
         }
         String surveyLaunchContext = surveyLaunchContextJson.toString();
+        android.util.Log.d("SHLOKA", surveyLaunchContext);
 
         JSONArray responseJson = new JSONArray();
         JSONArray repeatableSetResponseJson = new JSONArray();
@@ -1162,6 +1168,7 @@ public class SurveyActivity extends Activity implements LocationListener {
                 if (!inRepeatableSet) {
                     itemJson = new JSONObject();
                     try {
+                    	
                         itemJson.put("prompt_id", ((AbstractPrompt) surveyElements.get(i)).getId());
                         itemJson.put("value",
                                 ((AbstractPrompt) surveyElements.get(i)).getResponseObject());
