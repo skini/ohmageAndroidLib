@@ -148,7 +148,6 @@ public final class AndroidHttpClient implements HttpClient {
     }
 
 	private static SSLSocketFactory getSSLFactory(Context context) {
-		Log.d(TAG, "context == null: " + (context == null));
 		try {
 			KeyStore trusted = KeyStore.getInstance("BKS");
 			InputStream in = context.getResources().openRawResource(
