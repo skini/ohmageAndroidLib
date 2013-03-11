@@ -67,8 +67,6 @@ public class DashboardActivity extends BaseActivity {
         // Enable Funf and enable logging
         Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
         intent.setAction(MainPipeline.ACTION_ENABLE);
-        startService(intent);
-        intent.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
         startService(intent);       
     }
 

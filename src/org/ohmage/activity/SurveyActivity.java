@@ -360,6 +360,11 @@ public class SurveyActivity extends Activity implements LocationListener {
                     Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
                     intent.setAction(MainPipeline.ACTION_STOP_PROBES);
                     startService(intent);
+                    // Archive data and upload
+                    intent.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
+                    startService(intent);
+                    intent.setAction(MainPipeline.ACTION_UPLOAD_DATA);
+                    startService(intent);
                     
                     if (!mSurveyFinished) {
                         mSurveyFinished = true;
