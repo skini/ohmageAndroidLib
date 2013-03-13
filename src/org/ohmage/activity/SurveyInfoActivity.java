@@ -36,7 +36,6 @@ import org.ohmage.triggers.base.TriggerDB;
 import org.ohmage.ui.BaseInfoActivity;
 import org.ohmage.ui.OhmageFilterable.CampaignFilter;
 import org.ohmage.ui.OhmageFilterable.CampaignSurveyFilter;
-//import edu.mit.media.funf.wifiscanner.MainPipeline;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -201,8 +200,10 @@ public class SurveyInfoActivity extends BaseInfoActivity implements LoaderManage
 				public void onClick(View v) {
 					Analytics.widget(v);
 					
-                    // user start taking survey, start funf probes
-					Intent funfIntent = new Intent(getApplicationContext(), MainPipeline.class);
+					// user start taking survey, start funf probes
+			        Intent funfIntent = new Intent(getApplicationContext(), MainPipeline.class);
+			        funfIntent.setAction(MainPipeline.ACTION_ENABLE);
+			        startService(funfIntent);       
 					funfIntent.setAction(MainPipeline.ACTION_START_PROBES);
 					startService(funfIntent);
 

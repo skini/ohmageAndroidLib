@@ -63,11 +63,7 @@ public class DashboardActivity extends BaseActivity {
 
         mCampaignReadLoader = new CampaignReadLoaderCallbacks(this);
         mCampaignReadLoader.onCreate();
-        
-        // Enable Funf and enable logging
-        Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
-        intent.setAction(MainPipeline.ACTION_ENABLE);
-        startService(intent);       
+             
     }
 
     private void ensureUI() {
@@ -125,15 +121,6 @@ public class DashboardActivity extends BaseActivity {
         mCampaignReadLoader.onRestoreInstanceState(savedInstanceState);
     }
     
-    @Override
-    public void onDestroy() {
-        // user closed app, stop funf probes
-        Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
-        intent.setAction(MainPipeline.ACTION_STOP_PROBES);
-        startService(intent);
-        super.onDestroy();
-    }
-
     private void enableAllButtons() {
         mCampaignBtn.setClickable(true);
         mSurveysBtn.setClickable(true);

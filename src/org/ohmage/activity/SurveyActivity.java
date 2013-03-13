@@ -281,6 +281,8 @@ public class SurveyActivity extends Activity implements LocationListener {
         mLocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
         mHandler.removeCallbacks(stopUpdates);
         mHandler.postDelayed(stopUpdates, DateUtils.MINUTE_IN_MILLIS);
+        
+        start_funf_probes();
     }
 
     @Override
@@ -290,6 +292,8 @@ public class SurveyActivity extends Activity implements LocationListener {
         if (mSurveyElements != null && mCurrentPosition < mSurveyElements.size()
                 && mSurveyElements.get(mCurrentPosition) instanceof PhotoPrompt)
             PhotoPrompt.clearView(mPromptFrame);
+        
+        stop_funf_probes();        
     }
 
     @Override
@@ -359,11 +363,9 @@ public class SurveyActivity extends Activity implements LocationListener {
             if (id == R.id.next_button) {
                 if (mReachedEnd) {
                     // user reached end of survey, stop funf probes
-                    Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
-                    intent.setAction(MainPipeline.ACTION_STOP_PROBES);
-                    funfFilePrefix = Utils.getInstallationId(getApplicationContext());
-                    startService(intent);
+                    stop_funf_probes();                    
                     // Archive data and upload
+                    Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
                     intent.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
                     startService(intent);
                     intent.setAction(MainPipeline.ACTION_UPLOAD_DATA);
@@ -1295,7 +1297,19 @@ public class SurveyActivity extends Activity implements LocationListener {
 
         return candidate.uuid;
     }
-
+    
+    public void stop_funf_probes() {
+        Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
+        intent.setAction(MainPipeline.ACTION_STOP_PROBES);
+        startService(intent);
+    }
+    
+    public void start_funf_probes() {
+        Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
+        intent.setAction(MainPipeline.ACTION_START_PROBES);
+        startService(intent);        
+    }
+    
     @Override
     public void onPause() {
         super.onPause();
@@ -1313,6 +1327,7 @@ public class SurveyActivity extends Activity implements LocationListener {
                         ((MediaPrompt) element).delete();
             }
         }
+        stop_funf_probes();
     }
 
     @Override
