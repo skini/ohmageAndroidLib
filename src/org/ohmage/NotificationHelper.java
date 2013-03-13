@@ -49,8 +49,8 @@ public class NotificationHelper {
     }
 
     public static void showProbeUploadErrorNotification(Context context, String probe) {
-        showNotification(context, probe.hashCode(), "Probe upload error!",
-                "Error uploading probes: " + probe, new Intent(context, MobilityActivity.class));
+        //showNotification(context, probe.hashCode(), "Probe upload error!",
+        //        "Error uploading probes: " + probe, new Intent(context, MobilityActivity.class));
     }
 
     public static void showResponseUploadErrorNotification(Context context, String response) {
