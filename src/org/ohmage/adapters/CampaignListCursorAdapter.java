@@ -77,6 +77,7 @@ public class CampaignListCursorAdapter extends CursorAdapter{
 		case Campaign.STATUS_READY:
 			actionButton.setContentDescription(context.getString(R.string.campaign_list_item_action_button_surveys_description));
 			actionButton.setImageResource(R.drawable.subaction_surveys_list);
+			actionButton.setVisibility(View.GONE);
 			break;
 			
 		case Campaign.STATUS_STOPPED:

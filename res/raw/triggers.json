@@ -1,137 +1,217 @@
 {
     "triggers": [
 			{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"07:00","end":"10:00","time":"random","repeat":["Monday"]},
-	  		"action":{"surveys":["Morning1"]}
+	  		"action":{"surveys":["Morning"]}
 	  		},
 
 			{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"07:00","end":"10:00","time":"random","repeat":["Tuesday"]},
-	  		"action":{"surveys":["Morning2"]}
+	  		"action":{"surveys":["Morning"]}
 	  		},
 
 			{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"07:00","end":"10:00","time":"random","repeat":["Wednesday"]},
-	  		"action":{"surveys":["Morning3"]}
+	  		"action":{"surveys":["Morning"]}
 	  		},
 
 			{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"07:00","end":"10:00","time":"random","repeat":["Thursday"]},
-	  		"action":{"surveys":["Morning4"]}
+	  		"action":{"surveys":["Morning"]}
 	  		},
 
 			{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"07:00","end":"10:00","time":"random","repeat":["Friday"]},
-	  		"action":{"surveys":["Morning5"]}
+	  		"action":{"surveys":["Morning"]}
 	  		},
 	 		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"20:00","end":"22:00","time":"random","repeat":["Monday"]},
-	  		"action":{"surveys":["Evening1"]}
+	  		"action":{"surveys":["Evening"]}
 	  		},
 
 	 		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"20:00","end":"22:00","time":"random","repeat":["Tuesday"]},
-	  		"action":{"surveys":["Evening2"]}
+	  		"action":{"surveys":["Evening"]}
 	  		},
 	 		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"20:00","end":"22:00","time":"random","repeat":["Wednesday"]},
-	  		"action":{"surveys":["Evening3"]}
+	  		"action":{"surveys":["Evening"]}
 	  		},
 	 		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"20:00","end":"22:00","time":"random","repeat":["Thursday"]},
-	  		"action":{"surveys":["Evening4"]}
+	  		"action":{"surveys":["Evening"]}
 	  		},
 	 		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"20:00","end":"22:00","time":"random","repeat":["Friday"]},
-	  		"action":{"surveys":["Evening5"]}
+	  		"action":{"surveys":["Evening"]}
 	  		},
 	  		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"11:00","end":"13:00","time":"random","repeat":["Monday"]},
 	  		"action":{"surveys":["Midday1"]}
 	  		},
 
 	  		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"11:00","end":"13:00","time":"random","repeat":["Tuesday"]},
 	  		"action":{"surveys":["Midday2"]}
 	  		},
 
 	  		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"11:00","end":"13:00","time":"random","repeat":["Wednesday"]},
 	  		"action":{"surveys":["Midday3"]}
 	  		},
 
 	  		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"11:00","end":"13:00","time":"random","repeat":["Thursday"]},
 	  		"action":{"surveys":["Midday4"]}
 	  		},
 
 	  		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"11:00","end":"13:00","time":"random","repeat":["Friday"]},
 	  		"action":{"surveys":["Midday5"]}
 	  		},
 	  		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"15:00","end":"18:30","time":"random","repeat":["Monday"]},
 	  		"action":{"surveys":["Afternoon1"]}
 	  		},
 
 	  		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"15:00","end":"18:30","time":"random","repeat":["Tuesday"]},
 	  		"action":{"surveys":["Afternoon2"]}
 	  		},
 
 	  		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"15:00","end":"18:30","time":"random","repeat":["Wednesday"]},
 	  		"action":{"surveys":["Afternoon3"]}
 	  		},
 
 	  		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"15:00","end":"18:30","time":"random","repeat":["Thursday"]},
 	  		"action":{"surveys":["Afternoon4"]}
 	  		},
 
 	  		{
-	  		"campaign_urn":"urn:stress:study:pilot",
+	  		"campaign_urn":"urn:stress:study:round1",
 	  		"type":"TimeTrigger",
 	  		"description":{"start":"15:00","end":"18:30","time":"random","repeat":["Friday"]},
 	  		"action":{"surveys":["Afternoon5"]}
+	  		},
+	  		{
+	  		"campaign_urn":"urn:ranjan:pilot",
+	  		"type":"TimeTrigger",
+	  		"description":{"time":"11:00","repeat":["Sunday"]},
+	  		"action":{"surveys":["Morning"]}
+	  		},
+
+			{
+	  		"campaign_urn":"urn:ranjan:pilot",
+	  		"type":"TimeTrigger",
+	  		"description":{"time":"12:00","repeat":["Sunday"]},
+	  		"action":{"surveys":["Midday1"]}
+	  		},
+
+			{
+	  		"campaign_urn":"urn:ranjan:pilot",
+	  		"type":"TimeTrigger",
+	  		"description":{"time":"13:00","repeat":["Sunday"]},
+	  		"action":{"surveys":["Midday2"]}
+	  		},
+
+			{
+	  		"campaign_urn":"urn:ranjan:pilot",
+	  		"type":"TimeTrigger",
+	  		"description":{"time":"14:00","repeat":["Sunday"]},
+	  		"action":{"surveys":["Midday3"]}
+	  		},
+
+			{
+	  		"campaign_urn":"urn:ranjan:pilot",
+	  		"type":"TimeTrigger",
+	  		"description":{"start":"15:00","end":"18:30","time":"random","repeat":["Saturday", "Sunday"]},
+	  		"action":{"surveys":["Evening"]}
+	  		},
+	 		{
+	  		"campaign_urn":"urn:ranjan:pilot",
+	  		"type":"TimeTrigger",
+	  		"description":{"time":"19:00","repeat":["Sunday"]},
+	  		"action":{"surveys":["Afternoon5"]}
+	  		},
+
+	 		{
+	  		"campaign_urn":"urn:ranjan:pilot",
+	  		"type":"TimeTrigger",
+	  		"description":{"time":"20:00","repeat":["Sunday"]},
+	  		"action":{"surveys":["Midday4"]}
+	  		},
+	 		{
+	  		"campaign_urn":"urn:ranjan:pilot",
+	  		"type":"TimeTrigger",
+	  		"description":{"time":"21:00","repeat":["Sunday"]},
+	  		"action":{"surveys":["Midday5"]}
+	  		},
+	 		{
+	  		"campaign_urn":"urn:ranjan:pilot",
+	  		"type":"TimeTrigger",
+	  		"description":{"time":"21:30","repeat":["Sunday"]},
+	  		"action":{"surveys":["Afternoon1"]}
+	  		},
+	 		{
+	  		"campaign_urn":"urn:ranjan:pilot",
+	  		"type":"TimeTrigger",
+	  		"description":{"time":"22:00","repeat":["Sunday"]},
+	  		"action":{"surveys":["Afternoon2"]}
+	  		},
+	  		{
+	  		"campaign_urn":"urn:ranjan:pilot",
+	  		"type":"TimeTrigger",
+	  		"description":{"time":"22:30","repeat":["Sunday"]},
+	  		"action":{"surveys":["Afternoon3"]}
+	  		},
+
+	  		{
+	  		"campaign_urn":"urn:ranjan:pilot",
+	  		"type":"TimeTrigger",
+	  		"description":{"time":"14:30","repeat":["Sunday"]},
+	  		"action":{"surveys":["Afternoon4"]}
 	  		}
+
+
 ]
 }

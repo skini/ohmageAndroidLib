@@ -11,6 +11,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -73,6 +74,8 @@ public class CampaignInfoActivity extends BaseInfoActivity implements LoaderMana
 
 		// and inflate all the possible commands into the button tray
 		getLayoutInflater().inflate(R.layout.campaign_info_buttons, mButtonTray, true);
+		
+		
 		
 		// clear some things to their default values
 		mNotetext.setVisibility(View.GONE);
@@ -179,7 +182,7 @@ public class CampaignInfoActivity extends BaseInfoActivity implements LoaderMana
 				});
 				
 				// also show the take surveys button
-				surveysButton.setVisibility(View.VISIBLE);
+				surveysButton.setVisibility(View.GONE);
 				// and attach a handler for it
 				surveysButton.setOnClickListener(new OnClickListener() {
 					@Override

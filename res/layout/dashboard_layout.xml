@@ -15,7 +15,8 @@
         style="@style/DashboardButton"
         android:contentDescription="@string/dashboard_surveys_btn_description"
         android:drawableTop="@drawable/btn_dashboard_surveys"
-        android:text="@string/dashboard_surveys" />
+        android:text="@string/dashboard_surveys" 
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/dash_feedback_btn"

@@ -11,10 +11,14 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+
+
+import edu.mit.media.funf.Utils;
 
 import com.google.android.imageloader.ImageLoader;
 
@@ -68,6 +72,7 @@ public class SurveyInfoActivity extends BaseInfoActivity implements LoaderManage
 
 	private String mSurveyTitle;
 	private String mCampaignUrn;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -199,13 +204,16 @@ public class SurveyInfoActivity extends BaseInfoActivity implements LoaderManage
 				@Override
 				public void onClick(View v) {
 					Analytics.widget(v);
-					
+                    Intent funfIntent = new Intent(getApplicationContext(), MainPipeline.class);
+					funfIntent.setAction(MainPipeline.ACTION_STOP_PROBES);
+			        startService(funfIntent);                 
+                    funfIntent.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
+                    startService(funfIntent);
+                    Log.d("SHLOKA", "STOP FUNF PROBE1");
 					// user start taking survey, start funf probes
-			        Intent funfIntent = new Intent(getApplicationContext(), MainPipeline.class);
-			        funfIntent.setAction(MainPipeline.ACTION_ENABLE);
-			        startService(funfIntent);       
-					funfIntent.setAction(MainPipeline.ACTION_START_PROBES);
-					startService(funfIntent);
+			        funfIntent.setAction(MainPipeline.ACTION_START_PROBES);
+			        startService(funfIntent);  
+					Log.d("SHLOKA","START FUNF PROBES2");
 
 					// fire off the survey intent					
 					Intent intent = new Intent(mContext, SurveyActivity.class);
@@ -396,4 +404,7 @@ public class SurveyInfoActivity extends BaseInfoActivity implements LoaderManage
 	public void onLoaderReset(Loader<Cursor> loader) {
 		// FIXME should we hide the entity header like cameron does?
 	}
+	
+
+    
 }

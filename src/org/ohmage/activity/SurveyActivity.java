@@ -82,9 +82,12 @@ import org.ohmage.prompt.singlechoicecustom.SingleChoiceCustomPrompt;
 import org.ohmage.prompt.text.TextPrompt;
 import org.ohmage.prompt.timestamp.TimestampPrompt;
 import org.ohmage.service.SurveyGeotagService;
+import org.ohmage.service.UploadService;
 import org.ohmage.service.WakefulService;
 import org.ohmage.triggers.glue.TriggerFramework;
 import org.xmlpull.v1.XmlPullParserException;
+
+import com.commonsware.cwac.wakeful.WakefulIntentService;
 
 
 import edu.mit.media.funf.collection.MainPipeline;
@@ -363,13 +366,15 @@ public class SurveyActivity extends Activity implements LocationListener {
             if (id == R.id.next_button) {
                 if (mReachedEnd) {
                     // user reached end of survey, stop funf probes
-                    stop_funf_probes();                    
-                    // Archive data and upload
+                    stop_funf_probes();
+                    
+        			
                     Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
                     intent.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
                     startService(intent);
                     intent.setAction(MainPipeline.ACTION_UPLOAD_DATA);
                     startService(intent);
+                    Log.d("SHLOKA", "STOP FUNF PROBES2");
                     
                     if (!mSurveyFinished) {
                         mSurveyFinished = true;
@@ -379,6 +384,7 @@ public class SurveyActivity extends Activity implements LocationListener {
                                 mSurveyTitle);
                         UserPreferencesHelper prefs = new UserPreferencesHelper(SurveyActivity.this);
                         prefs.putLastSurveyTimestamp(mSurveyId, System.currentTimeMillis());
+                        
                         finish();
                     }
                 } else {
@@ -1157,7 +1163,7 @@ public class SurveyActivity extends Activity implements LocationListener {
             throw new RuntimeException(e);
         }
         String surveyLaunchContext = surveyLaunchContextJson.toString();
-        android.util.Log.d("SHLOKA", surveyLaunchContext);
+        android.util.Log.d("SHLOKA", "TRIGGER SHAKE");
 
         JSONArray responseJson = new JSONArray();
         JSONArray repeatableSetResponseJson = new JSONArray();
@@ -1275,9 +1281,9 @@ public class SurveyActivity extends Activity implements LocationListener {
         ContentResolver cr = context.getContentResolver();
         Uri responseUri = cr.insert(Responses.CONTENT_URI, candidate.toCV());
 
-        Intent intent = new Intent(context, SurveyGeotagService.class);
-        intent.setData(responseUri);
-        WakefulService.sendWakefulWork(context, intent);
+        //Intent intent = new Intent(context, SurveyGeotagService.class);
+        //intent.setData(responseUri);
+        //WakefulService.sendWakefulWork(context, intent);
 
         // create an intent and broadcast it to any interested receivers
         Intent i = new Intent("org.ohmage.SURVEY_COMPLETE");
@@ -1288,7 +1294,7 @@ public class SurveyActivity extends Activity implements LocationListener {
         i.putExtra(Responses.RESPONSE_TIME, time);
         i.putExtra(Responses.RESPONSE_TIMEZONE, timezone);
         i.putExtra(Responses.RESPONSE_LOCATION_STATUS, SurveyGeotagService.LOCATION_UNAVAILABLE);
-        i.putExtra(Responses.RESPONSE_STATUS, Response.STATUS_WAITING_FOR_LOCATION);
+        i.putExtra(Responses.RESPONSE_STATUS, Response.STATUS_QUEUED);
         i.putExtra(Responses.SURVEY_ID, surveyId);
         i.putExtra(Responses.RESPONSE_SURVEY_LAUNCH_CONTEXT, surveyLaunchContext);
         i.putExtra(Responses.RESPONSE_JSON, response);

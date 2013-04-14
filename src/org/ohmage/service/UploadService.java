@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.widget.Toast;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
@@ -168,6 +169,7 @@ public class UploadService extends WakefulIntentService {
                     responseJson.put("location", locationJson);
                 } else {
                     Log.w(TAG, "Response uploaded without a location");
+
                 }
                 responseJson.put("survey_id",
                         cursor.getString(cursor.getColumnIndex(Responses.SURVEY_ID)));

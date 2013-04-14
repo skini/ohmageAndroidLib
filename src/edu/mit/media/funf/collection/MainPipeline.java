@@ -37,6 +37,7 @@ import org.json.JSONException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import edu.mit.media.funf.IOUtils;
@@ -101,6 +102,11 @@ public class MainPipeline extends ConfiguredPipeline {
 	@Override
 	public void onDataReceived(Bundle data) {
 		data.putString("OhmageID_KEY", user.getUsername());
+		data.putString("Android Manufacturer", Build.MANUFACTURER);
+		data.putString("Android Model", Build.MODEL);
+		data.putInt("Android OS Version", android.os.Build.VERSION.SDK_INT);
+
+
 		super.onDataReceived(data);
 		incrementCount();
 	}

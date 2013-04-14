@@ -47,7 +47,7 @@ public class SurveyListActivity extends CampaignFilterActivity implements OnSurv
 
 		Bundle args = intentToFragmentArguments(getIntent());
 		args.putBoolean(SurveyListFragment.KEY_PENDING, false);
-		mTabsAdapter.addTab(getString(R.string.surveys_all), SurveyListFragment.class, args);
+		//mTabsAdapter.addTab(getString(R.string.surveys_all), SurveyListFragment.class, args);
 
 		args = intentToFragmentArguments(getIntent());
 		args.putBoolean(SurveyListFragment.KEY_PENDING, true);

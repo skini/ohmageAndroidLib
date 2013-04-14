@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import org.ohmage.activity.MobilityActivity;
 import org.ohmage.activity.UploadQueueActivity;
@@ -64,7 +65,7 @@ public class NotificationHelper {
         NotificationManager noteManager = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
         Notification note = new Notification();
-
+        Log.d("SHLOKA","SHOWING NOTIFICATION");
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         note.icon = R.drawable.ic_stat_warning;

@@ -18,6 +18,7 @@ package org.ohmage.triggers.notif;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -104,7 +105,6 @@ public class NotifSurveyAdaptor {
 		
 		if(!rtDesc.hasTriggerTimeStamp()) {
 			//SHLOKA
-			Log.e("SHLOKA",runTime+ " " + notif + " " + actions + " " + campaignUrn);
 			Log.e(TAG, "NotifSurveyAdaptor: Trigger time stamp is invalid");
 			
 			return actSurveys;
@@ -312,7 +312,10 @@ public class NotifSurveyAdaptor {
 		} catch (JSONException e) {
 			return null;
 		}
-		
+		//SHLOKA KINI HERE
+		//Log.d("SHLOKA", jTrigs.toString());
+		//Toast.makeText(context, jTrigs.toString(), Toast.LENGTH_SHORT).show();
+
 		return jTrigs;
 	}
 

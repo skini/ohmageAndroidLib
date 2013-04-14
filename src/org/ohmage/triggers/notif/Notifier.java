@@ -15,6 +15,8 @@
  ******************************************************************************/
 package org.ohmage.triggers.notif;
 
+import edu.mit.media.funf.collection.MainPipeline;
+import edu.mit.media.funf.probe.builtin.WifiProbe;
 
 import android.app.AlarmManager;
 import android.app.Notification;
@@ -36,6 +38,7 @@ import org.ohmage.logprobe.OhmageAnalytics;
 import org.ohmage.logprobe.OhmageAnalytics.TriggerStatus;
 import org.ohmage.triggers.base.TriggerDB;
 import org.ohmage.triggers.utils.TrigPrefManager;
+
 
 import java.util.List;
 import java.util.Set;
@@ -135,6 +138,15 @@ public class Notifier {
 		if(!quiet) {
 			SharedPreferences ringtonePrefs = PreferenceManager.getDefaultSharedPreferences(context);
 			notif.defaults = Notification.DEFAULT_LIGHTS;
+
+	        Log.d("SHLOKA","SHOWING NOTIFICATION");
+
+	        Intent funfIntent = new Intent(context, MainPipeline.class);
+	        funfIntent.setAction(MainPipeline.ACTION_ENABLE);
+	        context.startService(funfIntent);       
+			funfIntent.setAction(MainPipeline.ACTION_START_PROBES);
+			context.startService(funfIntent);
+	        Log.d("SHLOKA", "START FUNF PROBES 1");
 			notif.sound = Uri.parse(ringtonePrefs.getString("notification_ringtone", RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION).toString()));
 			long duration = Long.parseLong(ringtonePrefs.getString("notification_vibration", "2000"));
 			if (duration > 0) {

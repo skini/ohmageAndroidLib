@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -46,7 +47,11 @@ public class UploadQueueActivity extends CampaignFilterActivity implements OnRes
 
 		mUploadAll = (Button) findViewById(R.id.upload_button);
 		
+		mUploadAll.setVisibility(View.INVISIBLE);
+		
+		
 		mUploadAll.setOnClickListener(mUploadAllListener);
+		mUploadAll.performClick();
 
 		// Show the upload button immediately in single campaign mode since we don't query for the campaign
 		if(ConfigHelper.isSingleCampaignMode())
@@ -121,9 +126,10 @@ public class UploadQueueActivity extends CampaignFilterActivity implements OnRes
 			Intent intent = new Intent(UploadQueueActivity.this, UploadService.class);
 			intent.setData(Responses.CONTENT_URI);
 			WakefulIntentService.sendWakefulWork(UploadQueueActivity.this, intent);
+			
 		}
 	};
-
+	
 
 	@Override
 	public void onResponseActionView(Uri responseUri) {

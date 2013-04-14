@@ -2,6 +2,7 @@ package org.ohmage.ui;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Application;
 import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -10,6 +11,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
@@ -75,7 +78,8 @@ public class ResponseActivityHelper {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-
+						Toast.makeText(mContext, "CANT UPLOAD RIGHT NOW", Toast.LENGTH_SHORT).show();
+	
 						queueForUpload(responseUriForDialogs);
 					}
 				}).setNegativeButton(R.string.wait, null);
@@ -117,6 +121,11 @@ public class ResponseActivityHelper {
 		ContentResolver cr = mContext.getContentResolver();
 		ContentValues cv = new ContentValues();
 		cv.put(Responses.RESPONSE_STATUS, Response.STATUS_QUEUED);
+		String temp = "Status Queued: " + ((Integer) Response.STATUS_QUEUED).toString();
+		Log.d("SHLOKA", temp);
+		Toast.makeText(mContext, temp, Toast.LENGTH_LONG).show();
+		Toast.makeText(mContext, "Uploading response", Toast.LENGTH_SHORT).show();
+
 		cr.update(responseUri, cv, null, null);
 
 		Intent intent = new Intent(mContext, UploadService.class);

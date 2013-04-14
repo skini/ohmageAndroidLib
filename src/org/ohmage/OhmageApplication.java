@@ -165,7 +165,7 @@ public class OhmageApplication extends Application {
             userPrefs.setShowProfile(false);
             userPrefs.setShowMobilityFeedback(false);
             userPrefs.setUploadResponsesWifiOnly(true);
-            userPrefs.setUploadProbesWifiOnly(false);
+            userPrefs.setUploadProbesWifiOnly(true);
             //userPrefs.setIsSingleCampaignMode(true);
             config.setAdminMode(false);
             config.setLogLevel("verbose");
