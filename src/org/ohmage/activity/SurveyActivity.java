@@ -285,7 +285,7 @@ public class SurveyActivity extends Activity implements LocationListener {
         mHandler.removeCallbacks(stopUpdates);
         mHandler.postDelayed(stopUpdates, DateUtils.MINUTE_IN_MILLIS);
         
-        start_funf_probes();
+        //start_funf_probes();
     }
 
     @Override
@@ -296,7 +296,7 @@ public class SurveyActivity extends Activity implements LocationListener {
                 && mSurveyElements.get(mCurrentPosition) instanceof PhotoPrompt)
             PhotoPrompt.clearView(mPromptFrame);
         
-        stop_funf_probes();        
+        ////stop_funf_probes();        
     }
 
     @Override
@@ -365,17 +365,13 @@ public class SurveyActivity extends Activity implements LocationListener {
             int id = v.getId();
             if (id == R.id.next_button) {
                 if (mReachedEnd) {
-                    // user reached end of survey, stop funf probes
-                    stop_funf_probes();
                     
-        			
-                    Intent intent = new Intent(getApplicationContext(), MainPipeline.class);
-                    intent.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
-                    startService(intent);
-                    intent.setAction(MainPipeline.ACTION_UPLOAD_DATA);
-                    startService(intent);
-                    Log.d("SHLOKA", "STOP FUNF PROBES2");
-                    
+	                 // Archive data and upload
+	                 Intent funfintent = new Intent(getApplicationContext(), MainPipeline.class);
+	                 funfintent.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
+	                 startService(funfintent);
+	                 funfintent.setAction(MainPipeline.ACTION_UPLOAD_DATA);
+	                 //startService(funfintent);
                     if (!mSurveyFinished) {
                         mSurveyFinished = true;
                         String uuid = storeResponse();
@@ -1333,7 +1329,7 @@ public class SurveyActivity extends Activity implements LocationListener {
                         ((MediaPrompt) element).delete();
             }
         }
-        stop_funf_probes();
+        //stop_funf_probes();
     }
 
     @Override

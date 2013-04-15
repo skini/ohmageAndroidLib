@@ -204,16 +204,17 @@ public class SurveyInfoActivity extends BaseInfoActivity implements LoaderManage
 				@Override
 				public void onClick(View v) {
 					Analytics.widget(v);
-                    Intent funfIntent = new Intent(getApplicationContext(), MainPipeline.class);
-					funfIntent.setAction(MainPipeline.ACTION_STOP_PROBES);
-			        startService(funfIntent);                 
-                    funfIntent.setAction(MainPipeline.ACTION_ARCHIVE_DATA);
-                    startService(funfIntent);
+	
+			        Intent stopintent = new Intent(getApplicationContext(), MainPipeline.class);
+			        stopintent.setAction(MainPipeline.ACTION_STOP_PROBES);
+			        startService(stopintent);    
+                    
+                    //Log.d("SHLOKA", "STOP FUNF PROBES2");
                     Log.d("SHLOKA", "STOP FUNF PROBE1");
 					// user start taking survey, start funf probes
-			        funfIntent.setAction(MainPipeline.ACTION_START_PROBES);
-			        startService(funfIntent);  
-					Log.d("SHLOKA","START FUNF PROBES2");
+			        //funfIntent.setAction(MainPipeline.ACTION_START_PROBES);
+			        //startService(funfIntent);  
+					//Log.d("SHLOKA","START FUNF PROBES2");
 
 					// fire off the survey intent					
 					Intent intent = new Intent(mContext, SurveyActivity.class);

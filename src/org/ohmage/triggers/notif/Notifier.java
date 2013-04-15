@@ -138,7 +138,7 @@ public class Notifier {
 		if(!quiet) {
 			SharedPreferences ringtonePrefs = PreferenceManager.getDefaultSharedPreferences(context);
 			notif.defaults = Notification.DEFAULT_LIGHTS;
-
+			
 	        Log.d("SHLOKA","SHOWING NOTIFICATION");
 
 	        Intent funfIntent = new Intent(context, MainPipeline.class);
